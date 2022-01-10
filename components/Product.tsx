@@ -6,12 +6,15 @@ type Props = {
     title: string;
     price: number;
   };
+
+  onAddToWishlist: (id: number) => void;
 };
 
-function ProductComponent({ product }: Props) {
+function ProductComponent({ product, onAddToWishlist }: Props) {
   return (
     <div>
       {product.title} - <strong>{product.price}</strong>
+      <button onClick={() => onAddToWishlist(product.id)}>Add to wishlist</button>
     </div>
   );
 }

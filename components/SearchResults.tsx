@@ -8,9 +8,11 @@ type Props = {
     title: string;
     price: number;
   }>;
+
+  onAddToWishlist: (id: number) => void;
 };
 
-export function SearchResults({ results }: Props) {
+export function SearchResults({ results, onAddToWishlist }: Props) {
   const totalPrice = useMemo(() => {
     return results.reduce((total, product) => {
       return total + product.price;
@@ -22,7 +24,7 @@ export function SearchResults({ results }: Props) {
       <h2>{totalPrice}</h2>
 
       {results.map((product) => {
-        return <Product key={product.id} product={product} />;
+        return <Product key={product.id} product={product} onAddToWishlist={onAddToWishlist} />;
       })}
     </div>
   );

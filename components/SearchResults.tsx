@@ -1,5 +1,3 @@
-import { useMemo } from 'react';
-
 import { Product } from './Product';
 
 type Props = {
